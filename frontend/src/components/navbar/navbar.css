@@ -1,0 +1,186 @@
+/* --- NEURAL NAV ISLAND --- */
+.neural-nav {
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    z-index: 1000;
+    background: rgba(10, 10, 20, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scrolled State: More solid, closer to top */
+.neural-nav.nav-shrunk {
+    top: 1rem;
+    width: 95%;
+    background: rgba(10, 10, 20, 0.85);
+    border-color: rgba(91, 78, 255, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* --- BRANDING --- */
+.nav-brand-elite {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
+.brand-icon-glow {
+    background: #5B4EFF;
+    padding: 7px;
+    border-radius: 12px;
+    display: flex;
+    box-shadow: 0 0 15px rgba(91, 78, 255, 0.5);
+}
+
+.brand-text-elite {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+
+.brand-text-elite span span {
+    color: #5B4EFF;
+}
+
+/* --- NAVIGATION LINKS --- */
+.nav-controls-cluster {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.public-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-link-elite {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-link-elite:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.nav-v-separator {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- USER HUB & AUTH --- */
+.auth-cluster-nav, .user-hub-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-nav-ghost {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.btn-nav-glow {
+    background: #fff;
+    color: #000;
+    padding: 0.55rem 1.25rem;
+    border-radius: 100px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-nav-glow:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+/* USER PILL */
+.user-status-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.status-ping-small {
+    width: 6px;
+    height: 6px;
+    background: #00D4A8;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00D4A8;
+}
+
+.btn-portal-nav {
+    background: rgba(91, 78, 255, 0.15);
+    color: #A89FFF;
+    border: 1px solid rgba(91, 78, 255, 0.3);
+    padding: 0.5rem 1.25rem;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-portal-nav:hover {
+    background: rgba(91, 78, 255, 0.25);
+    border-color: #5B4EFF;
+    color: #fff;
+}
+
+.btn-terminate-nav {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+}
+
+.btn-terminate-nav:hover {
+    color: #ef4444;
+    transform: rotate(90deg);
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .public-links, .nav-v-separator, .user-status-pill {
+        display: none;
+    }
+}

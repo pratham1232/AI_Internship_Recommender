@@ -1,0 +1,174 @@
+/* --- THE NEURAL AUTH SYSTEM CORE --- */
+:root {
+    --auth-bg: #030303;
+    --auth-indigo: #5B4EFF;
+    --auth-cyan: #00D4A8;
+    --auth-border: rgba(255, 255, 255, 0.08);
+    --auth-glass: rgba(18, 18, 31, 0.75);
+    --auth-input-bg: rgba(255, 255, 255, 0.03);
+}
+
+/* --- LAYOUT WRAPPER --- */
+.neural-auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--auth-bg);
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Background Atmosphere */
+.auth-background { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.auth-glow { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.15; }
+.auth-glow-1 { top: -10%; left: -5%; width: 500px; height: 500px; background: var(--auth-indigo); }
+.auth-glow-2 { bottom: -10%; right: -5%; width: 400px; height: 400px; background: var(--auth-cyan); }
+.auth-grid-pattern {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(var(--auth-border) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(circle at center, black, transparent 90%);
+}
+.auth-noise { position: absolute; inset: 0; opacity: 0.02; background-image: url("https://grainy-gradients.vercel.app/noise.svg"); }
+
+/* --- BRANDING --- */
+.auth-container-main { position: relative; z-index: 1; width: 100%; max-width: 460px; padding: 2rem; display: flex; flex-direction: column; gap: 2rem; }
+.auth-nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; justify-content: center; }
+.logo-hex-glow { 
+    background: var(--auth-indigo); padding: 7px; border-radius: 12px; 
+    box-shadow: 0 0 20px rgba(91, 78, 255, 0.4); display: flex;
+}
+.logo-brand-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; color: #fff; }
+.logo-brand-text span { color: var(--auth-indigo); }
+
+/* --- GLASS CARD --- */
+.auth-glass-card {
+    background: var(--auth-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--auth-border);
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+}
+
+.auth-status-bar {
+    padding: 1rem 1.75rem; background: rgba(255,255,255,0.02);
+    border-bottom: 1px solid var(--auth-border);
+    display: flex; justify-content: space-between; align-items: center;
+}
+
+.auth-status-pill {
+    display: flex; align-items: center; gap: 8px; font-family: monospace;
+    font-size: 0.65rem; font-weight: 700; color: var(--auth-cyan); text-transform: uppercase;
+}
+.pulse-dot-green { width: 6px; height: 6px; background: var(--auth-cyan); border-radius: 50%; animation: authPulse 2s infinite; }
+
+@keyframes authPulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 212, 168, 0.4); }
+    70% { transform: scale(1.2); box-shadow: 0 0 0 8px rgba(0, 212, 168, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 212, 168, 0); }
+}
+
+.auth-card-body { padding: 2.5rem; }
+
+.auth-text-header { text-align: center; margin-bottom: 2.5rem; }
+.auth-text-header h1 { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem; color: #fff; }
+.auth-text-header p { color: rgba(255,255,255,0.4); font-size: 0.9rem; }
+
+/* --- FORM PRO STYLES --- */
+.auth-form-pro { display: flex; flex-direction: column; gap: 1.5rem; }
+.input-group-pro { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.input-group-pro label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.3);
+}
+
+.input-wrapper-inner { position: relative; display: flex; align-items: center; }
+
+.input-icon { position: absolute; left: 14px; color: rgba(255,255,255,0.2); transition: 0.3s; }
+
+.input-wrapper-inner input, 
+.select-pro {
+    width: 100%;
+    padding: 12px 12px 12px 42px !important;
+    background: var(--auth-input-bg) !important;
+    border: 1px solid var(--auth-border) !important;
+    border-radius: 12px !important;
+    color: #fff !important;
+    font-size: 0.95rem;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-wrapper-inner input:focus,
+.select-pro:focus {
+    outline: none;
+    border-color: var(--auth-indigo) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    box-shadow: 0 0 0 4px rgba(91, 78, 255, 0.1) !important;
+}
+
+.input-wrapper-inner:focus-within .input-icon { color: var(--auth-indigo); }
+
+/* Custom Styling for Select box in Dark Mode */
+.select-pro {
+    appearance: none;
+    cursor: pointer;
+}
+.select-pro option {
+    background: #0A0A14;
+    color: #fff;
+}
+
+/* --- BUTTONS --- */
+.btn-auth-submit {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 14px; background: #fff; color: #000;
+    border: none; border-radius: 12px; font-weight: 800;
+    cursor: pointer; transition: 0.3s; margin-top: 0.5rem;
+}
+
+.btn-auth-submit:hover:not(:disabled) {
+    background: var(--auth-indigo);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(91, 78, 255, 0.3);
+}
+
+.btn-auth-submit.loading { opacity: 0.6; cursor: not-allowed; }
+
+/* --- UTILS & FOOTER --- */
+.auth-footer-redirect { text-align: center; font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-top: 1rem; }
+.signup-highlight { color: var(--auth-indigo); text-decoration: none; font-weight: 800; margin-left: 6px; }
+.signup-highlight:hover { text-decoration: underline; }
+
+.signup-policy {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.72rem; color: rgba(255,255,255,0.3);
+}
+
+.auth-card-security-footer {
+    padding: 1rem; background: rgba(0, 212, 168, 0.03);
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+    font-size: 0.65rem; font-weight: 800; color: var(--auth-cyan);
+    border-top: 1px solid rgba(0, 212, 168, 0.1); text-transform: uppercase;
+}
+
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Password Toggle */
+.btn-toggle-visibility {
+    position: absolute; right: 12px; background: transparent; border: none;
+    color: rgba(255,255,255,0.2); cursor: pointer; display: flex; align-items: center;
+}
+.btn-toggle-visibility:hover { color: #fff; }
+
+.label-row { display: flex; justify-content: space-between; align-items: center; }
+.forgot-pass-link { font-size: 0.65rem; font-weight: 800; color: var(--auth-indigo); cursor: pointer; }

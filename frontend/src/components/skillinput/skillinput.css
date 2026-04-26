@@ -1,0 +1,155 @@
+/* --- WRAPPER --- */
+.neural-input-wrapper {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+/* --- THE CONSOLE BAR --- */
+.neural-console-bar {
+    display: flex;
+    align-items: center;
+    background: rgba(18, 18, 31, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 10px 8px 20px;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+/* Focused State: The Neural Glow */
+.neural-console-bar:focus-within {
+    border-color: rgba(91, 78, 255, 0.6);
+    box-shadow: 0 0 0 4px rgba(91, 78, 255, 0.1), 
+                0 20px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+.console-busy {
+    background: rgba(22, 22, 45, 0.9);
+    pointer-events: none;
+}
+
+/* --- INPUT FIELD --- */
+.console-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 15px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.console-input:focus {
+    outline: none;
+}
+
+.console-input::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+    font-weight: 300;
+}
+
+/* --- PREFIX & SUFFIX --- */
+.console-prefix {
+    display: flex;
+    align-items: center;
+}
+
+.text-indigo-glow {
+    color: #5B4EFF;
+    filter: drop-shadow(0 0 5px rgba(91, 78, 255, 0.5));
+}
+
+.console-suffix {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Keyboard Shortcut Visual */
+.kbd-hint {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 6px 10px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.65rem;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-family: monospace;
+}
+
+/* --- THE BUTTON --- */
+.btn-neural-execute {
+    background: linear-gradient(135deg, #5B4EFF, #7C71FF);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-neural-execute:hover:not(:disabled) {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(91, 78, 255, 0.4);
+    filter: brightness(1.1);
+}
+
+.btn-neural-execute:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* --- STATUS ROW --- */
+.console-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 18px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.75rem;
+    font-weight: 500;
+    font-family: monospace;
+}
+
+.text-cyan { color: #00D4A8; }
+.status-item { display: flex; align-items: center; gap: 6px; }
+.status-item.separator { opacity: 0.1; }
+
+/* --- PURE CSS NEURAL LOADER --- */
+.neural-pulse-loader {
+    width: 14px;
+    height: 14px;
+    background: #00D4A8;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00D4A8;
+    animation: neuralPulse 1s ease-in-out infinite;
+}
+
+@keyframes neuralPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.4; }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .kbd-hint, .console-status-row { display: none; }
+    .neural-console-bar { padding-left: 15px; }
+    .btn-neural-execute span { display: none; }
+    .btn-neural-execute { padding: 12px; border-radius: 50%; }
+}

@@ -1,0 +1,77 @@
+.resume-upload-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.02);
+    transition: 0.3s;
+}
+
+.resume-upload-card:hover {
+    border-color: #4f46e5;
+    transform: translateY(-5px);
+}
+
+.upload-icon-wrapper {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-indigo { color: #4f46e5; }
+.text-green { color: #10b981; }
+
+.resume-upload-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+.resume-upload-card p { font-size: 0.85rem; color: #64748b; margin-bottom: 20px; }
+
+.file-label {
+    display: block;
+    border: 2px dashed #e2e8f0;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: 0.2s;
+}
+
+.file-label:hover {
+    background: #f8fafc;
+    border-color: #4f46e5;
+}
+
+.btn-upload-ai {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: #0f172a;
+    color: white;
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-upload-ai:hover:not(:disabled) {
+    background: #4f46e5;
+}
+
+.btn-upload-ai.success {
+    background: #10b981;
+}
+
+.btn-upload-ai:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.spin { animation: rotate 1.5s linear infinite; }
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
